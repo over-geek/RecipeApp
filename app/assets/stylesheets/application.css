@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .recipe,
+.recipe,
 .public_recipe_list {
   display: grid;
   border: 1px solid black;
