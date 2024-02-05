@@ -13,3 +13,246 @@
  *= require_tree .
  *= require_self
  */
+
+.recipe,
+.public_recipe_list {
+  display: grid;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.public_recipe_list {
+  width: 40%;
+  grid-template-columns: 40% 60%;
+  margin: 0 auto;
+}
+
+.public_recipe_list p,
+.public_recipe_list h3 {
+  margin: 0;
+}
+
+.public_recipe_list h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.public_recipe_list > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.public_recipe_amount {
+  margin-top: 10px !important;
+}
+
+.recipe {
+  width: 60%;
+  grid-template-columns: 30% 70%;
+  margin: 10px 20%;
+}
+
+.recipe_links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe_food_container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe_food_container section {
+  display: flex;
+  justify-content: space-between;
+}
+
+#recipe_food_table {
+  width: 100%;
+  text-align: center;
+}
+
+.table,
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td,
+#customers td,
+.table th,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table th,
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #555;
+  color: white;
+}
+
+.container-f {
+  width: 60%;
+  margin: 20px 20%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.total {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04aa6d;
+}
+
+.home {
+  margin-top: 20%;
+  font-size: x-large;
+}
+
+input[type=text],
+input[type=number],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 40%;
+  background-color: #555;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #000;
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 60%;
+  margin: 20px 20%;
+}
+
+.button {
+  width: 100%;
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mov {
+  width: 15%;
+  margin: 10px 45%;
+}
+
+/* Add these styles to your CSS */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 34px;
+}
+
+.toggle-container {
+  width: 160px;
+}
+
+.toggle_status_container {
+  border: 1px solid black;
+  border-radius: 30%;
+  cursor: pointer;
+}
+
+.toggle-button {
+  display: block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.toggle-button.private {
+  background-color: green;
+  transform: translateX(100%);
+}
+
+.toggle-button.public {
+  background-color: red;
+  transform: translateX(0%);
+}
+
+.hidden-toggle-field {
+  display: none; /* Hide the hidden field */
+}
