@@ -11,6 +11,15 @@
   </head>
 
   <body>
+
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Food List", foods_path %></li>
+      <li><%= link_to "Recipe List", recipes_path %></li>
+      <li><%= link_to 'Public Recipes', public_recipes_path %></li>
+      <li><%= link_to "General List", general_list_path %></li>
+    </ul>
+
     <div class="flash-notice">
       <%= notice %>
     </div>
