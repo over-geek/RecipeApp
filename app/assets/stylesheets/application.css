@@ -226,7 +226,7 @@ input[type=submit]:hover {
 .toggle-container {
   width: 160px;
   display: flex;
-  margin-top: 1rem; 
+  margin-top: 1rem;
   gap: 5px;
 }
 
