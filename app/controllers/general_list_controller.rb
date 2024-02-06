@@ -7,7 +7,7 @@ class GeneralListController < ApplicationController
     @foods = Food.left_outer_joins(:recipe_foods).where(recipe_foods: { food_id: nil },
                                                         foods: { user_id: current_user.id })
     @foods.each do |t|
-      @tot_price += t.price
+      @tot_price += t.price * t.quantity
       @tot_count += 1
     end
   end
