@@ -1,0 +1,22 @@
+<div class=container-f>
+<h1 class="title-franck"> Shopping List </h1>
+<br>
+<div class="total">
+<h3>Total value of food needed : <%= @tot_price %></h3>
+<h3>Amount of food items to buy : <%= @tot_count %></h3>
+</div>
+<% if @foods.empty? %>
+<h1> Every foods is connected to recipe </h1>
+<% else %>
+<table id="customers">
+<tr>
+<th>Foods</th><th>Quantity</th><th>Price</th>
+</tr>
+<% @foods.each do |f| %>
+    <tr>
+      <td><%= f.name %></td><td><%= f.quantity %></td><td><%= f.price %></td>
+    </tr>
+<% end %>
+</table>
+<% end %>
+</div>
