@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @public_recipes = Recipe.where(is_public: true).order(created_at: :desc)
+    @public_recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
   def destroy
