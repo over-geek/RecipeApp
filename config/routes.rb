@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:index, :new, :create, :show, :destroy] do
     member do
-      patch 'toggle'
+      patch 'toggle', to: 'recipes#toggle_recipe'
     end
     resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
   end

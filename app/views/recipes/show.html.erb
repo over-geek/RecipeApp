@@ -9,18 +9,28 @@
         <p> <%= @recipe.description %> </p>
       </div>
     </div>
-    </div>
+		<div class="toggle-container m-3">
+			<p>Public</p>
+			<% if @recipe.user_id == current_user.id %>
+				<%= form_with model: @recipe, url: toggle_recipe_path(@recipe), method: :patch, local: true do |form| %>
+					<%= form.hidden_field :public, value: !@recipe.public %>
+					<label class="switch">
+						<div class="toggle_status_container">
+							<button type="submit" class="toggle-button <%= @recipe.public ? 'private' : 'public' %>"></button>
+						</div>
+					</label>
+				<% end %>
+			<% end %>
+		</div>
   </section>
+
   <section>
-
   <%= link_to 'Generate Shopping List', general_list_path %>
-
-   
-
     <% if @recipe.user == current_user %>
       <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe) %>
     <% end %>
   </section>
+
   <section>
     <table id="recipe_food_table" class="table">
       <thead>

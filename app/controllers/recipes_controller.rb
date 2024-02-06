@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :authorize_recipe_toggle, only: [:toggle]
+  before_action :authorize_recipe_toggle, only: [:toggle_recipe]
 
   def index
     @user_recipes = Recipe.where(user_id: current_user.id)
@@ -32,20 +32,10 @@ class RecipesController < ApplicationController
     redirect_to recipes_path, notice: 'Recipe was deleted successfully.'
   end
 
-  def toggle
-    @recipe = Recipe.find(params[:id])
-    @recipe.update(is_public: !@recipe.is_public)
-
-    if @recipe.is_public?
-      session[:public_recipes] ||= []
-      session[:public_recipes] << @recipe.id
-    elsif session[:public_recipes]
-      session[:public_recipes].delete(@recipe.id)
-    end
-
-    respond_to do |format|
-      format.html { redirect_to @recipe }
-    end
+  def toggle_recipe
+    @recipe = current_user.recipes.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    redirect_to @recipe, notice: 'Recipe status toggled successfully.'
   end
 
   def public_recipes

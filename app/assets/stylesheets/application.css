@@ -225,12 +225,19 @@ input[type=submit]:hover {
 
 .toggle-container {
   width: 160px;
+  display: flex;
+  margin-top: 1rem; 
+  gap: 5px;
 }
 
 .toggle_status_container {
   border: 1px solid black;
   border-radius: 30%;
   cursor: pointer;
+}
+
+.toggle-container p {
+  margin: 0;
 }
 
 .toggle-button {
