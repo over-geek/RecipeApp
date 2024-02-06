@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     @user_recipes = Recipe.where(user_id: current_user.id)
+    @user = current_user.recipes.includes(:user)
   end
 
   def new
@@ -16,10 +17,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(user: current_user, name: params[:recipe][:name],
-                         preparation_time: params[:recipe][:preparation_time],
-                         cooking_time: params[:recipe][:cooking_time],
-                         description: params[:recipe][:description])
+    @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
       redirect_to recipes_path, notice: 'Recipe added successfully.'
     else
