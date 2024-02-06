@@ -23,10 +23,6 @@ development:
   <<: *default
   database: recipe_app_development
 
-  host: localhost   # or the hostname or IP of your PostgreSQL server
-  port: 5433        # the port where PostgreSQL is running
-  username: postgres
-  password: "1234" 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
@@ -61,10 +57,6 @@ test:
   <<: *default
   database: recipe_app_test
 
-  host: localhost   # or the hostname or IP of your PostgreSQL server
-  port: 5433        # the port where PostgreSQL is running
-  username: postgres
-  password: "1234" 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -90,3 +82,4 @@ production:
   database: recipe_app_production
   username: recipe_app
   password: <%= ENV["RECIPE_APP_DATABASE_PASSWORD"] %>
+  
