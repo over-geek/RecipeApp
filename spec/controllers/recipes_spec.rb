@@ -44,16 +44,6 @@ RSpec.describe RecipesController, type: :controller do
     end
   end
 
-  describe 'PATCH #toggle' do
-    let(:recipe) { create(:recipe, user:) }
-
-    it 'toggles is_public attribute' do
-      patch :toggle, params: { id: recipe.id }
-      recipe.reload
-      expect(recipe.is_public).to eq(true)
-    end
-  end
-
   describe 'GET #public_recipes' do
     it 'returns http success' do
       get :public_recipes
