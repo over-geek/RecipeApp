@@ -1,0 +1,23 @@
+<div class="home-content">
+  <p><%= @title %></p>
+  <h1> Your foods </h1>
+</div>
+<% if @foods.empty? %>
+  <h3> You have not food yet, Go and create</h3>
+<% else %>
+<table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= number_to_currency(food.price, unit: "$") %></td>
+        
+      </tr>
+    <% end %>
+  </table>
+<%end%>

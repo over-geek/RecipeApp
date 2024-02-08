@@ -1,0 +1,23 @@
+<h1>Recipes</h1>
+<% if @user_recipes.empty? %>
+  <p> You have not created recipes yet </p>
+<% else %>
+	<% @user_recipes.each do |recipe| %>
+			<div class="recipe">
+				<div class="recipe_links">
+					<h2><%= link_to recipe.name, recipe_path(recipe, recipe) %></h2>
+					<% if can? :destroy, recipe %>
+                      <%= link_to 'Delete', show_for_purpose1_recipe_path(recipe) %>
+					<% end %>
+				</div>
+				<div>
+					<p><%= recipe.description %></p>
+				</div>
+			</div>
+	<% end %>
+<% end %>
+<div class="mov">
+<button class="button">
+<%= link_to 'Create Recipe', new_recipe_path %>
+</button>
+<div>
