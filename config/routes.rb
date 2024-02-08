@@ -13,7 +13,12 @@ Rails.application.routes.draw do
     end
     resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :foods
+
+  resources :foods do
+    member do
+      get 'show_for_purpose2'
+    end
+  end
 
   resources :recipes do
     member do

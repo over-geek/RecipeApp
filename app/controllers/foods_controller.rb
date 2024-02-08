@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_food, only: %i[show]
+  before_action :set_food, only: %i[show_for_purpose2]
 
   def index
     @foods = current_user.foods.includes(:user)
@@ -19,7 +19,7 @@ class FoodsController < ApplicationController
     end
   end
 
-  def show
+  def show_for_purpose2
     @food = Food.find(params[:id])
     if @food.recipe_foods.empty?
       if @food.destroy
@@ -30,6 +30,12 @@ class FoodsController < ApplicationController
     else
       redirect_to foods_path, alert: 'Food item is still being used in recipes'
     end
+  end
+
+  def destroy
+    @food = current_user.foods.find(params[:id])
+    @food.destroy
+    redirect_to foods_path, notice: 'Food deleted successfully.'
   end
 
   private
